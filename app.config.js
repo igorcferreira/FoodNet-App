@@ -2,7 +2,7 @@ const IS_DEV = process.env.APP_VARIANT === "development";
 
 export default {
   name: IS_DEV ? "FoodNet-DEV" : "FoodNet",
-  slug: "FoodNet-App",
+  slug: "foodnet-app",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./app/assets/icon.png",
@@ -18,10 +18,10 @@ export default {
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: IS_DEV ? "com.foodnet.dev" : "com.foodnet",
+    bundleIdentifier: IS_DEV ? "com.futureworkshosp.foodnet_app.dev" : "com.futureworkshosp.foodnet_app",
   },
   android: {
-    package: IS_DEV ? "com.foodnet.dev" : "com.foodnet",
+    package: IS_DEV ? "com.futureworkshosp.foodnet_app.dev" : "com.futureworkshosp.foodnet_app",
     adaptiveIcon: {
       foregroundImage: "./app/assets/adaptive-icon.png",
       backgroundColor: "#CC7638",
@@ -34,7 +34,7 @@ export default {
   plugins: [],
   extra: {
     eas: {
-      projectId: "b3e63523-37cc-4be2-84fc-c702e4661991",
+      projectId: "c6ad181a-46d1-4fe3-9e51-291f4cad2dfd",
     },
   },
 };
