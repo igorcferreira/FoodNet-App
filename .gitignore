@@ -12,6 +12,7 @@ web-build/
 app/assets/model
 app/assets/test-model
 android/
+ios/
 
 # macOS
 .DS_Store

@@ -117,11 +117,13 @@ function ImagePickerModal({ navigation }) {
 										aspect: [1, 1],
 										base64: true,
 									});
+
 								if (!image.cancelled) {
+									const asset = image.assets[0]
 									setModelIsRunning(true);
 									navigation.navigate("Results", {
-										imageUri: image.uri,
-										imageBase64: image.base64,
+										imageUri: asset.uri,
+										imageBase64: asset.base64,
 									});
 								}
 							} catch (e) {

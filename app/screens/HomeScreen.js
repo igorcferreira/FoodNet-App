@@ -21,7 +21,7 @@ function HomeScreen() {
 	const fetchRecentIntake = async () => {
 		try {
 			let result = await selectLastKRecords(3);
-			setRecentIntakeList(result.rows._array);
+			setRecentIntakeList(result);
 		} catch (error) {
 			setError(
 				new Error(
@@ -35,7 +35,7 @@ function HomeScreen() {
 		try {
 			let date = dateToString(new Date());
 			let result = await selectNutrientsSumOnDate(date);
-			let value = result.rows._array[0];
+			let value = result[0];
 			value = {
 				calorie: value.sum_calorie ? value.sum_calorie : 0,
 				carbs: value.sum_carbs ? value.sum_carbs : 0,
@@ -46,7 +46,7 @@ function HomeScreen() {
 		} catch (error) {
 			setError(
 				new Error(
-					"SQLite Error : Unable to retrieve today nutrients from database.",
+					"SQLite Error : Unable to retrieve today nutrients from database." + error,
 					{ cause: error }
 				)
 			);

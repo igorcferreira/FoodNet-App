@@ -18,10 +18,10 @@ export default {
   assetBundlePatterns: ["**/*"],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: IS_DEV ? "com.futureworkshosp.foodnet_app.dev" : "com.futureworkshosp.foodnet_app",
+    bundleIdentifier: IS_DEV ? "com.futureworkshosp.foodnet.dev" : "com.futureworkshosp.foodnet",
   },
   android: {
-    package: IS_DEV ? "com.futureworkshosp.foodnet_app.dev" : "com.futureworkshosp.foodnet_app",
+    package: IS_DEV ? "com.futureworkshosp.foodnet.dev" : "com.futureworkshosp.foodnet",
     adaptiveIcon: {
       foregroundImage: "./app/assets/adaptive-icon.png",
       backgroundColor: "#CC7638",
@@ -31,7 +31,7 @@ export default {
   web: {
     favicon: "./app/assets/favicon.png",
   },
-  plugins: [],
+  plugins: ["expo-sqlite"],
   extra: {
     eas: {
       projectId: "c6ad181a-46d1-4fe3-9e51-291f4cad2dfd",

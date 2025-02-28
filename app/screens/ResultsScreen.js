@@ -320,7 +320,7 @@ function ResultsScreen({ navigation, route }) {
 
 	const onSave = async (uri) => {
 		try {
-			let imageUri = await saveImage(uri);
+			let imageUri = uri;
 			const values = {
 				file_uri: imageUri,
 				category: predictedResult.categoryOutput,
@@ -337,7 +337,7 @@ function ResultsScreen({ navigation, route }) {
 		} catch (error) {
 			setError(
 				new Error(
-					"Unable to save image. This could be due to user not granting permission to modify the image / database error.",
+					"Error: " + error + ". Unable to save image. This could be due to user not granting permission to modify the image / database error.",
 					{ cause: error }
 				)
 			);

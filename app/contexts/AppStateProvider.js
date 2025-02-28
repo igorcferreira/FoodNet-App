@@ -31,8 +31,11 @@ function AppStateProvider({ children }) {
 		return await tf.loadGraphModel(storage.fetch_model_url);
 	};
 	const prepareModel = async () => {
+		console.log("Getting latest model version");
 		let latestModelVersion = await fetchLatestModelVersion();
+		console.log("Getting current model version. Latest: " + latestModelVersion);
 		let currentModelVersion = await getLocalModelVersion();
+		console.log("Current model version: " + currentModelVersion);
 		let model = null;
 		if (latestModelVersion !== currentModelVersion) {
 			console.log(
@@ -97,8 +100,11 @@ function AppStateProvider({ children }) {
 	useEffect(() => {
 		async function prepareApp() {
 			try {
+				console.log("Creating databases");
 				await createDatabaseTables();
+				console.log("Waiting from TF");
 				await tf.ready();
+				console.log("Preparign models");
 				await prepareModel();
 			} catch (error) {
 				setError(
@@ -111,6 +117,7 @@ function AppStateProvider({ children }) {
 				setAppIsReady(true);
 			}
 		}
+		console.log("Preparign app");
 		prepareApp();
 	}, []);
 

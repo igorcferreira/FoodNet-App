@@ -49,7 +49,7 @@ function StatsScreen() {
 				let currentDate = new Date();
 				let startDate =
 					result.rows.length > 0
-						? stringToDate(result.rows._array[0].date)
+						? stringToDate(result[0].date)
 						: currentDate;
 				startDate = getStartOfWeek(startDate);
 				let range = generateWeeklyDatesBetween(startDate, currentDate);
@@ -82,7 +82,7 @@ function StatsScreen() {
 		)
 			.then((result) => {
 				return Promise.resolve(
-					parseWeeklyNutrientsSum(result.rows._array)
+					parseWeeklyNutrientsSum(result)
 				);
 			})
 			.then((weeklyNutrientsSum) => {
@@ -106,7 +106,7 @@ function StatsScreen() {
 		let selectedDate = datePickerDates[selectedDateIndex];
 		selectRecordsOnDate(dateToString(selectedDate))
 			.then((result) => {
-				setEatenFoodData(result.rows._array);
+				setEatenFoodData(result);
 			})
 			.catch((error) => {
 				setError(
@@ -140,7 +140,7 @@ function StatsScreen() {
 		)
 			.then((result) => {
 				return Promise.resolve(
-					parseWeeklyNutrientsSum(result.rows._array)
+					parseWeeklyNutrientsSum(result)
 				);
 			})
 			.then((weeklyNutrientsSum) => {
